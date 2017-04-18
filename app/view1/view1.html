@@ -1,0 +1,31 @@
+<h1>Bars</h1>
+<p>Type:</p>
+<select ng-model="selectedType" ng-change="selectedTypeChanged()" ng-options ="option.bar_type for option in barTypes">
+    <!--<option ng-repeat="x in barTypes" value="{{x.bar_type}}">{{x.bar_type}}</option>-->
+</select>
+<p>MinRating:</p>
+<select ng-model="minRating" ng-change="selectedRatingChanged()" ng-options="option for option in ratings"></select>
+<p>MaxPrice</p>
+<input type="number" ng-change="maxChanged()" ng-model="maxPrice">
+<p>MinPrice</p>
+<input type="number" ng-change="minChanged()" ng-model="minPrice">
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Type</th>
+        <th>Website</th>
+        <th>Phone</th>
+        <th>Average Rating</th>
+        <th># of Ratings</th>
+    </tr>
+    <tr ng-repeat="x in bars">
+        <td ng-click="showDetail(x.bar_id)">{{x.bar_name}}</td>
+        <td>{{x.address}}</td>
+        <td>{{x.bar_type}}</td>
+        <td>{{x.bar_website}}</td>
+        <td>{{x.phone}}</td>
+        <td style="text-align: right;">{{x.average}}</td>
+        <td style="text-align: right;">{{x.count}}</td>
+    </tr>
+</table>

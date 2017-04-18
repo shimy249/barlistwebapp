@@ -1,0 +1,33 @@
+<h1>{{bar[0].bar_name}}</h1>
+<h2>{{bar[0].address}}</h2>
+<h2>{{bar[0].type}}</h2>
+<h2>{{bar[0].bar_website}}</h2>
+<h2>{{bar[0].phone}}</h2>
+
+<h2>Products</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+    </tr>
+    <tr ng-repeat="x in products">
+        <td>{{x.name}}</td>
+        <td>{{x.category}}</td>
+        <td>{{x.prices}}</td>
+    </tr>
+</table>
+
+<h2>Reviews</h2>
+<table>
+    <tr>
+        <th>Review Date</th>
+        <th>Rating</th>
+        <th>Product Name</th>
+    </tr>
+    <tr ng-repeat="x in bar">
+        <td>{{x.review_date}}</td>
+        <td>{{x.rating}}</td>
+        <td>{{x.name}}</td>
+    </tr>
+</table>
