@@ -13,12 +13,12 @@ angular.module('myApp.barDetail', ['ngRoute'])
     }])
 
     .controller('bardetailCtrl', ['$http', '$scope', '$routeParams', function($http, $scope, $routeParams) {
-        $http.get('http://localhost:3000/bars/'+$routeParams.ID).success(function(response){
+        $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/bars/'+$routeParams.ID).success(function(response){
             console.log(response);
 
             $scope.bar = response;
 
-            $http.get('http://localhost:3000/bar_products/'+$routeParams.ID).success(function(responseP){
+            $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/bar_products/'+$routeParams.ID).success(function(responseP){
                 console.log(responseP);
                 $scope.products = responseP;
             })

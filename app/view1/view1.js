@@ -14,7 +14,7 @@ angular.module('myApp.barlist', ['ngRoute'])
     $scope.ratings = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
     $scope.minRating = '0';
 
-    $http.get('http://localhost:3000/bars').success(function(response){
+    $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/bars').success(function(response){
         console.log(response);
 
         $scope.bars = response;
@@ -24,7 +24,7 @@ angular.module('myApp.barlist', ['ngRoute'])
         $location.path("/barDetail/"+id);
     };
 
-    $http.get('http://localhost:3000/types').success(function(response){
+    $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/types').success(function(response){
         console.log(response);
 
         $scope.barTypes = response;
@@ -35,13 +35,13 @@ angular.module('myApp.barlist', ['ngRoute'])
 
     $scope.selectedTypeChanged=function(){
         if($scope.selectedType != ""){
-            $http.get('http://localhost:3000/barsbytype/'+$scope.selectedType.bar_type).success(function(response){
+            $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/barsbytype/'+$scope.selectedType.bar_type).success(function(response){
                 console.log(response);
                 $scope.bars = response;
             });
         }
         else{
-            $http.get('http://localhost:3000/bars').success(function(response){
+            $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/bars').success(function(response){
                 console.log(response);
 
                 $scope.bars = response;
@@ -58,7 +58,7 @@ angular.module('myApp.barlist', ['ngRoute'])
         $scope.minPrice = '';
 
         if($scope.maxPrice==''){
-            $http.get('http://localhost:3000/bars').success(function(response){
+            $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/bars').success(function(response){
                 console.log(response);
 
                 $scope.bars = response;
@@ -66,7 +66,7 @@ angular.module('myApp.barlist', ['ngRoute'])
         }
         else {
 
-            $http.get('http://localhost:3000/maxprice/' + $scope.maxPrice).success(function (response) {
+            $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/maxprice/' + $scope.maxPrice).success(function (response) {
                 console.log(response);
                 $scope.bars = response;
             });
@@ -78,7 +78,7 @@ angular.module('myApp.barlist', ['ngRoute'])
         $scope.maxPrice = '';
 
         if($scope.minPrice==''){
-            $http.get('http://localhost:3000/bars').success(function(response){
+            $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/bars').success(function(response){
                 console.log(response);
 
                 $scope.bars = response;
@@ -86,7 +86,7 @@ angular.module('myApp.barlist', ['ngRoute'])
         }
         else {
 
-            $http.get('http://localhost:3000/minprice/' + $scope.minPrice).success(function (response) {
+            $http.get('http://ec2-52-53-151-237.us-west-1.compute.amazonaws.com:3000/minprice/' + $scope.minPrice).success(function (response) {
                 console.log(response);
                 $scope.bars = response;
             });
